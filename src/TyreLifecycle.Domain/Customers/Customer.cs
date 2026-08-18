@@ -1,3 +1,4 @@
+using Volo.Abp;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace TyreLifecycle.Customers;
@@ -16,17 +17,17 @@ public class Customer : FullAuditedAggregateRoot<Guid>
     public Customer(Guid id, string customerNumber, string firstName, string lastName, string mobileNumber, string? email = null)
         : base(id)
     {
-        CustomerNumber = customerNumber;
-        FirstName = firstName;
-        LastName = lastName;
-        MobileNumber = mobileNumber;
+        CustomerNumber = Check.NotNullOrWhiteSpace(customerNumber, nameof(customerNumber));
+        FirstName = Check.NotNullOrWhiteSpace(firstName, nameof(firstName));
+        LastName = Check.NotNullOrWhiteSpace(lastName, nameof(lastName));
+        MobileNumber = Check.NotNullOrWhiteSpace(mobileNumber, nameof(mobileNumber));
         Email = email;
         IsActive = true;
     }
 
     public void UpdateContact(string mobileNumber, string? email)
     {
-        MobileNumber = mobileNumber;
+        MobileNumber = Check.NotNullOrWhiteSpace(mobileNumber, nameof(mobileNumber));
         Email = email;
     }
 
