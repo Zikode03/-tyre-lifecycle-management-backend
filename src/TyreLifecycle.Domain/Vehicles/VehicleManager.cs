@@ -14,7 +14,9 @@ public class VehicleManager : DomainService
 
     public async Task<Vehicle> CreateAsync(Guid customerId, string registrationNumber, string make, string model, int year, long odometerKm, string? vin = null)
     {
-        Check.NotDefaultOrNull<Guid>(customerId, nameof(customerId));
+        if (customerId == Guid.Empty)
+            throw new ArgumentException("CustomerId is required.", nameof(customerId));
+
         Check.NotNullOrWhiteSpace(registrationNumber, nameof(registrationNumber));
         Check.NotNullOrWhiteSpace(make, nameof(make));
         Check.NotNullOrWhiteSpace(model, nameof(model));
