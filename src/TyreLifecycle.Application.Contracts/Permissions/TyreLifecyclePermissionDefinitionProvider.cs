@@ -22,5 +22,11 @@ public class TyreLifecyclePermissionDefinitionProvider : PermissionDefinitionPro
         tyres.AddChild(TyreLifecyclePermissions.Tyres.Create, "Create tyres");
         tyres.AddChild(TyreLifecyclePermissions.Tyres.Update, "Update tyres");
         tyres.AddChild(TyreLifecyclePermissions.Tyres.Retire, "Retire tyres");
+
+        var inspections = group.AddPermission(TyreLifecyclePermissions.Inspections.Default, "Inspections");
+        inspections.AddChild(TyreLifecyclePermissions.Inspections.Create, "Create inspections");
+        inspections.AddChild(TyreLifecyclePermissions.Inspections.Update, "Update inspections");
+        inspections.AddChild(TyreLifecyclePermissions.Inspections.Complete, "Complete inspections");
+        inspections.AddChild(TyreLifecyclePermissions.Inspections.Cancel, "Cancel inspections");
     }
 }
