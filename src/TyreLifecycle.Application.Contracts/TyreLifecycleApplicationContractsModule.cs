@@ -3,7 +3,10 @@ using Volo.Abp.Modularity;
 
 namespace TyreLifecycle;
 
-[DependsOn(typeof(AbpDddApplicationContractsModule))]
+[DependsOn(
+    typeof(AbpDddApplicationContractsModule),
+    typeof(TyreLifecycleDomainSharedModule)
+)]
 public class TyreLifecycleApplicationContractsModule : AbpModule
 {
 }
