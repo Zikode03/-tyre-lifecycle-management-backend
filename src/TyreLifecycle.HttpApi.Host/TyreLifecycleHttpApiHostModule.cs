@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.OpenApi.Models;
 using TyreLifecycle.EntityFrameworkCore;
+using TyreLifecycle.HttpApi;
 using Volo.Abp;
+using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.AspNetCore.Mvc.Conventions;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.Modularity;
@@ -13,6 +16,8 @@ namespace TyreLifecycle.HttpApi.Host;
     typeof(AbpAutofacModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule),
+    typeof(TyreLifecycleApplicationModule),
+    typeof(TyreLifecycleHttpApiModule),
     typeof(TyreLifecycleEntityFrameworkCoreModule)
 )]
 public class TyreLifecycleHttpApiHostModule : AbpModule
@@ -21,8 +26,14 @@ public class TyreLifecycleHttpApiHostModule : AbpModule
     {
         var configuration = context.Services.GetConfiguration();
 
-        context.Services.AddControllers();
-        context.Services.AddEndpointsApiExplorer();
+        Configure<AbpAspNetCoreMvcOptions>(options =>
+        {
+            options.ConventionalControllers.Create(
+                typeof(TyreLifecycleApplicationModule).Assembly,
+                controllerOptions => controllerOptions.RootPath = "v1"
+            );
+        });
+
         context.Services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo
