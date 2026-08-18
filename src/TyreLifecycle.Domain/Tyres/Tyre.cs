@@ -1,14 +1,7 @@
+using Volo.Abp;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace TyreLifecycle.Tyres;
-
-public enum TyreHealthStatus
-{
-    Unknown = 0,
-    Good = 1,
-    Attention = 2,
-    Critical = 3
-}
 
 public class Tyre : FullAuditedAggregateRoot<Guid>
 {
@@ -29,11 +22,11 @@ public class Tyre : FullAuditedAggregateRoot<Guid>
         : base(id)
     {
         VehicleId = vehicleId;
-        TyreNumber = tyreNumber;
-        Brand = brand;
-        Model = model;
-        Size = size;
-        Position = position;
+        TyreNumber = Check.NotNullOrWhiteSpace(tyreNumber, nameof(tyreNumber));
+        Brand = Check.NotNullOrWhiteSpace(brand, nameof(brand));
+        Model = Check.NotNullOrWhiteSpace(model, nameof(model));
+        Size = Check.NotNullOrWhiteSpace(size, nameof(size));
+        Position = Check.NotNullOrWhiteSpace(position, nameof(position));
         FitmentOdometerKm = fitmentOdometerKm;
         HealthStatus = TyreHealthStatus.Unknown;
         IsActive = true;
@@ -42,12 +35,12 @@ public class Tyre : FullAuditedAggregateRoot<Guid>
     public void RecordTread(decimal treadDepthMm, TyreHealthStatus status)
     {
         if (treadDepthMm < 0)
-            throw new ArgumentOutOfRangeException(nameof(treadDepthMm));
+            throw new BusinessException(TyreLifecycleDomainErrorCodes.InvalidTreadDepth);
 
         TreadDepthMm = treadDepthMm;
         HealthStatus = status;
     }
 
-    public void MoveTo(string position) => Position = position;
+    public void MoveTo(string position) => Position = Check.NotNullOrWhiteSpace(position, nameof(position));
     public void Retire() => IsActive = false;
 }
