@@ -27,4 +27,13 @@ public static class TyreLifecyclePermissions
         public const string Update = Default + ".Update";
         public const string Retire = Default + ".Retire";
     }
+
+    public static class Inspections
+    {
+        public const string Default = GroupName + ".Inspections";
+        public const string Create = Default + ".Create";
+        public const string Update = Default + ".Update";
+        public const string Complete = Default + ".Complete";
+        public const string Cancel = Default + ".Cancel";
+    }
 }
