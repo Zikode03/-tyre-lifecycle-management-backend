@@ -14,7 +14,9 @@ public class TyreManager : DomainService
 
     public async Task<Tyre> CreateAsync(Guid vehicleId, string tyreNumber, string brand, string model, string size, string position, long fitmentOdometerKm)
     {
-        Check.NotDefaultOrNull<Guid>(vehicleId, nameof(vehicleId));
+        if (vehicleId == Guid.Empty)
+            throw new ArgumentException("VehicleId is required.", nameof(vehicleId));
+
         Check.NotNullOrWhiteSpace(tyreNumber, nameof(tyreNumber));
         Check.NotNullOrWhiteSpace(brand, nameof(brand));
         Check.NotNullOrWhiteSpace(model, nameof(model));
