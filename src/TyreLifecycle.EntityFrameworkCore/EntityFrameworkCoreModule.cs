@@ -11,7 +11,10 @@ using Volo.Abp.Modularity;
 
 namespace TyreLifecycle.EntityFrameworkCore;
 
-[DependsOn(typeof(AbpEntityFrameworkCoreSqlServerModule))]
+[DependsOn(
+    typeof(AbpEntityFrameworkCoreSqlServerModule),
+    typeof(TyreLifecycleDomainModule)
+)]
 public class TyreLifecycleEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
