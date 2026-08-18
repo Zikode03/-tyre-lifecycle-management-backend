@@ -1,8 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using TyreLifecycle.Customers;
 using TyreLifecycle.EntityFrameworkCore.Customers;
+using TyreLifecycle.EntityFrameworkCore.Inspections;
 using TyreLifecycle.EntityFrameworkCore.Tyres;
 using TyreLifecycle.EntityFrameworkCore.Vehicles;
+using TyreLifecycle.Inspections;
 using TyreLifecycle.Tyres;
 using TyreLifecycle.Vehicles;
 using Volo.Abp.EntityFrameworkCore;
@@ -25,6 +27,7 @@ public class TyreLifecycleEntityFrameworkCoreModule : AbpModule
             options.AddRepository<Customer, EfCoreCustomerRepository>();
             options.AddRepository<Vehicle, EfCoreVehicleRepository>();
             options.AddRepository<Tyre, EfCoreTyreRepository>();
+            options.AddRepository<Inspection, EfCoreInspectionRepository>();
         });
 
         Configure<AbpDbContextOptions>(options =>
