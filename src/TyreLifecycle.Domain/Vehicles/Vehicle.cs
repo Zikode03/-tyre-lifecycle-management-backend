@@ -1,3 +1,4 @@
+using Volo.Abp;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace TyreLifecycle.Vehicles;
@@ -19,9 +20,9 @@ public class Vehicle : FullAuditedAggregateRoot<Guid>
         : base(id)
     {
         CustomerId = customerId;
-        RegistrationNumber = registrationNumber;
-        Make = make;
-        Model = model;
+        RegistrationNumber = Check.NotNullOrWhiteSpace(registrationNumber, nameof(registrationNumber));
+        Make = Check.NotNullOrWhiteSpace(make, nameof(make));
+        Model = Check.NotNullOrWhiteSpace(model, nameof(model));
         Year = year;
         OdometerKm = odometerKm;
         Vin = vin;
@@ -31,7 +32,11 @@ public class Vehicle : FullAuditedAggregateRoot<Guid>
     public void UpdateOdometer(long odometerKm)
     {
         if (odometerKm < OdometerKm)
-            throw new InvalidOperationException("Vehicle odometer cannot move backwards.");
+        {
+            throw new BusinessException(TyreLifecycleDomainErrorCodes.VehicleOdometerCannotMoveBackwards)
+                .WithData("CurrentOdometerKm", OdometerKm)
+                .WithData("RequestedOdometerKm", odometerKm);
+        }
 
         OdometerKm = odometerKm;
     }
