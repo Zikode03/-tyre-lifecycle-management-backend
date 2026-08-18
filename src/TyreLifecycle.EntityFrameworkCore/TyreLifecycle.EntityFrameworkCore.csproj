@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net9.0</TargetFramework></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TyreLifecycle.Domain\TyreLifecycle.Domain.csproj" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="9.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8"><PrivateAssets>all</PrivateAssets><IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets></PackageReference>
+  </ItemGroup>
+</Project>
