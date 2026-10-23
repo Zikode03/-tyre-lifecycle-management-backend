@@ -1,0 +1,824 @@
+{
+  "tyretrack.demo.customers": [
+    {
+      "id": "CUS-1001",
+      "name": "Thando Mkhize",
+      "mobile": "0825550147",
+      "email": "thando@example.com",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1002",
+      "name": "Sibusiso Dlamini",
+      "mobile": "083 555 0271",
+      "email": "sibusiso@example.com",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1003",
+      "name": "Lerato Molefe",
+      "mobile": "072 555 0418",
+      "email": "lerato@example.com",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1004",
+      "name": "Priya Naidoo",
+      "mobile": "071 555 0652",
+      "email": "priya@example.com",
+      "status": "Active"
+    }
+  ],
+  "tyretrack.demo.vehicles": [
+    {
+      "id": "VEH-2001",
+      "customerId": "CUS-1001",
+      "registration": "ND 452-981",
+      "make": "Toyota",
+      "model": "Corolla Cross",
+      "year": 2021,
+      "mileage": 68240,
+      "status": "Active",
+      "branchId": "BR-DBN",
+      "fleetId": "FLT-RETAIL"
+    },
+    {
+      "id": "VEH-2002",
+      "customerId": "CUS-1002",
+      "registration": "NU 193-442",
+      "make": "Ford",
+      "model": "Ranger",
+      "year": 2020,
+      "mileage": 84420,
+      "status": "Active",
+      "branchId": "BR-DBN",
+      "fleetId": "FLT-LOG"
+    },
+    {
+      "id": "VEH-2003",
+      "customerId": "CUS-1003",
+      "registration": "ND 812-774",
+      "make": "Volkswagen",
+      "model": "Polo",
+      "year": 2022,
+      "mileage": 41980,
+      "status": "Active",
+      "branchId": "BR-PTN",
+      "fleetId": "FLT-RETAIL"
+    },
+    {
+      "id": "VEH-2004",
+      "customerId": "CUS-1004",
+      "registration": "ND 667-220",
+      "make": "Hyundai",
+      "model": "Creta",
+      "year": 2022,
+      "mileage": 55210,
+      "status": "Active",
+      "branchId": "BR-DBN",
+      "fleetId": "FLT-SALES"
+    }
+  ],
+  "tyretrack.demo.bookings": [
+    {
+      "id": "BKG-3001",
+      "bookingNumber": 1,
+      "customer": "Thando Mkhize",
+      "registration": "ND 452-981",
+      "service": "Tyre inspection",
+      "date": "2026-08-17",
+      "time": "08:30",
+      "status": "Checked in"
+    },
+    {
+      "id": "BKG-3002",
+      "bookingNumber": 2,
+      "customer": "Lerato Molefe",
+      "registration": "ND 812-774",
+      "service": "Rotation & balancing",
+      "date": "2026-08-17",
+      "time": "09:15",
+      "status": "Confirmed"
+    },
+    {
+      "id": "BKG-3003",
+      "bookingNumber": 3,
+      "customer": "Sibusiso Dlamini",
+      "registration": "NU 193-442",
+      "service": "Replacement assessment",
+      "date": "2026-08-17",
+      "time": "10:30",
+      "status": "Confirmed"
+    }
+  ],
+  "tyretrack.demo.inspections": [
+    {
+      "id": "INS-1048",
+      "registration": "ND 452-981",
+      "customer": "Thando Mkhize",
+      "technician": "S. Dlamini",
+      "status": "In progress"
+    },
+    {
+      "id": "INS-1047",
+      "registration": "NU 193-442",
+      "customer": "Sibusiso Dlamini",
+      "technician": "Unassigned",
+      "status": "Awaiting technician"
+    },
+    {
+      "id": "INS-1046",
+      "registration": "ND 667-220",
+      "customer": "Priya Naidoo",
+      "technician": "T. Mkhize",
+      "status": "Booked"
+    },
+    {
+      "id": "INS-1045",
+      "registration": "ND 812-774",
+      "customer": "Lerato Molefe",
+      "technician": "S. Dlamini",
+      "status": "Completed",
+      "odometer": 41980,
+      "position": "Rear right",
+      "inner": 4,
+      "centre": 4.1,
+      "outer": 4,
+      "pressure": 32,
+      "measurementSource": "Manual gauge",
+      "wearPattern": "Even",
+      "defects": [],
+      "recommendation": "Monitor at next service"
+    }
+  ],
+  "tyretrack.demo.warranty": [
+    {
+      "id": "WAR-2041",
+      "tyreId": "TYR-3004",
+      "issue": "Sidewall separation",
+      "type": "Manufacturer warranty",
+      "status": "Evidence review",
+      "eligibility": "Likely eligible",
+      "supplier": "Continental"
+    },
+    {
+      "id": "WAR-2038",
+      "tyreId": "TYR-3010",
+      "issue": "Pothole impact",
+      "type": "Road-hazard plan",
+      "status": "Awaiting supplier",
+      "eligibility": "Plan dependent",
+      "supplier": "Bridgestone"
+    }
+  ],
+  "tyretrack.demo.tyreScans": [],
+  "tyretrack.demo.tpms": [
+    {
+      "id": "TPMS-1",
+      "registration": "ND 452-981",
+      "position": "Front Left",
+      "pressurePsi": 34,
+      "temperatureC": 31,
+      "sensorBattery": "Good",
+      "capturedAt": "2026-08-18T06:10:00Z",
+      "source": "Vehicle TPMS gateway",
+      "status": "Normal"
+    },
+    {
+      "id": "TPMS-2",
+      "registration": "ND 452-981",
+      "position": "Front Right",
+      "pressurePsi": 34,
+      "temperatureC": 32,
+      "sensorBattery": "Good",
+      "capturedAt": "2026-08-18T06:10:00Z",
+      "source": "Vehicle TPMS gateway",
+      "status": "Normal"
+    },
+    {
+      "id": "TPMS-3",
+      "registration": "ND 452-981",
+      "position": "Rear Left",
+      "pressurePsi": 31,
+      "temperatureC": 30,
+      "sensorBattery": "Good",
+      "capturedAt": "2026-08-18T06:10:00Z",
+      "source": "Vehicle TPMS gateway",
+      "status": "Low"
+    },
+    {
+      "id": "TPMS-4",
+      "registration": "ND 452-981",
+      "position": "Rear Right",
+      "pressurePsi": 33,
+      "temperatureC": 30,
+      "sensorBattery": "Low",
+      "capturedAt": "2026-08-18T06:10:00Z",
+      "source": "Vehicle TPMS gateway",
+      "status": "Normal"
+    }
+  ],
+  "tyretrack.demo.devices": [
+    {
+      "id": "DEV-01",
+      "name": "Bay 1 TPMS Reader",
+      "type": "TPMS reader",
+      "branchId": "BR-DBN",
+      "status": "Connected",
+      "lastSync": "2 min ago"
+    },
+    {
+      "id": "DEV-02",
+      "name": "Tread Gauge TG-08",
+      "type": "Digital tread gauge",
+      "branchId": "BR-DBN",
+      "status": "Connected",
+      "lastSync": "1 min ago"
+    },
+    {
+      "id": "DEV-03",
+      "name": "Drive-over Scanner A",
+      "type": "Drive-over scanner",
+      "branchId": "BR-PTN",
+      "status": "Attention",
+      "lastSync": "48 min ago"
+    },
+    {
+      "id": "DEV-04",
+      "name": "Alignment Bay 2",
+      "type": "Alignment machine",
+      "branchId": "BR-DBN",
+      "status": "Offline",
+      "lastSync": "Yesterday"
+    }
+  ],
+  "tyretrack.demo.branches": [
+    {
+      "id": "BR-DBN",
+      "name": "Durban Central",
+      "region": "KwaZulu-Natal",
+      "vehicles": 1240,
+      "workshopBays": 8,
+      "status": "Active"
+    },
+    {
+      "id": "BR-PTN",
+      "name": "Pinetown",
+      "region": "KwaZulu-Natal",
+      "vehicles": 680,
+      "workshopBays": 5,
+      "status": "Active"
+    },
+    {
+      "id": "BR-PMB",
+      "name": "Pietermaritzburg",
+      "region": "KwaZulu-Natal",
+      "vehicles": 415,
+      "workshopBays": 4,
+      "status": "Attention"
+    }
+  ],
+  "tyretrack.demo.fleets": [
+    {
+      "id": "FLT-LOG",
+      "name": "KZN Logistics Fleet",
+      "branchId": "BR-DBN",
+      "vehicles": 620,
+      "criticalTyres": 18,
+      "attentionTyres": 77,
+      "manager": "S. Khumalo"
+    },
+    {
+      "id": "FLT-SALES",
+      "name": "Regional Sales Fleet",
+      "branchId": "BR-DBN",
+      "vehicles": 240,
+      "criticalTyres": 4,
+      "attentionTyres": 28,
+      "manager": "P. Naidoo"
+    },
+    {
+      "id": "FLT-RETAIL",
+      "name": "Retail Customer Vehicles",
+      "branchId": "BR-PTN",
+      "vehicles": 680,
+      "criticalTyres": 12,
+      "attentionTyres": 63,
+      "manager": "L. Mthembu"
+    }
+  ],
+  "tyretrack.demo.jobCards": [
+    {
+      "id": "JOB-4001",
+      "registration": "ND 452-981",
+      "customer": "Thando Mkhize",
+      "branch": "Durban Central",
+      "inspectionIds": [
+        "INS-1048"
+      ],
+      "createdAt": "2026-08-18T07:30:00Z",
+      "status": "Quote sent",
+      "quoteNumber": "QT-260818-001",
+      "quoteDecision": "Pending",
+      "quoteSentAt": "2026-08-18T07:42:00Z",
+      "vatRate": 15,
+      "items": [
+        {
+          "id": "ITEM-1",
+          "type": "Tyre replacement",
+          "description": "Continental UltraContact 205/55 R16 - rear right replacement",
+          "position": "Rear Right",
+          "sku": "CON-UC-2055516",
+          "quantity": 1,
+          "unitPrice": 1850,
+          "approved": true
+        },
+        {
+          "id": "ITEM-2",
+          "type": "Alignment",
+          "description": "Four-wheel alignment after uneven wear finding",
+          "quantity": 1,
+          "unitPrice": 650,
+          "approved": true
+        },
+        {
+          "id": "ITEM-3",
+          "type": "Balancing",
+          "description": "Wheel balancing for replacement tyre",
+          "position": "Rear Right",
+          "quantity": 1,
+          "unitPrice": 180,
+          "approved": true
+        }
+      ]
+    }
+  ],
+  "tyretrack.demo.stock": [
+    {
+      "sku": "CON-UC-2055516",
+      "brand": "Continental",
+      "model": "UltraContact",
+      "size": "205/55 R16",
+      "quantity": 12,
+      "branch": "Durban Central",
+      "sellingPrice": 1850,
+      "supplierCode": "CT-20555-UC",
+      "updatedAt": "17 Aug 2026, 20:10"
+    },
+    {
+      "sku": "MIC-P4-2055516",
+      "brand": "Michelin",
+      "model": "Primacy 4",
+      "size": "205/55 R16",
+      "quantity": 3,
+      "branch": "Durban Central",
+      "sellingPrice": 2150,
+      "supplierCode": "MI-20555-P4",
+      "updatedAt": "17 Aug 2026, 20:10"
+    },
+    {
+      "sku": "BRI-T005-2254517",
+      "brand": "Bridgestone",
+      "model": "Turanza T005",
+      "size": "225/45 R17",
+      "quantity": 0,
+      "branch": "Durban Central",
+      "sellingPrice": 2400,
+      "supplierCode": "BS-22545-T005",
+      "updatedAt": "17 Aug 2026, 20:10"
+    },
+    {
+      "sku": "GY-EF2-1955516",
+      "brand": "Goodyear",
+      "model": "EfficientGrip Performance 2",
+      "size": "195/55 R16",
+      "quantity": 7,
+      "branch": "Durban Central",
+      "sellingPrice": 1995,
+      "supplierCode": "GY-19555-EF2",
+      "updatedAt": "17 Aug 2026, 20:10"
+    },
+    {
+      "sku": "BRI-DUEL-2656517",
+      "brand": "Bridgestone",
+      "model": "Dueler A/T",
+      "size": "265/65 R17",
+      "quantity": 5,
+      "branch": "Pinetown",
+      "sellingPrice": 3290,
+      "supplierCode": "BS-26565-DAT",
+      "updatedAt": "17 Aug 2026, 19:56"
+    }
+  ],
+  "tyretrack.lifecycle.events": [
+    {
+      "id": "EVT-001",
+      "tyreId": "TYR-3004",
+      "registration": "ND 452-981",
+      "position": "Rear Right",
+      "type": "Fitment",
+      "odometer": 20000,
+      "createdAt": "2025-11-18T08:00:00Z",
+      "notes": "Original fitment"
+    }
+  ],
+  "tyretrack.lifecycle.recalls": [
+    {
+      "id": "RC-2026-014",
+      "manufacturer": "Continental",
+      "model": "UltraContact",
+      "dotRange": "DOT 1026-1826",
+      "severity": "Safety",
+      "status": "Active",
+      "affectedTyres": 6,
+      "matchedVehicles": [
+        "ND 452-981",
+        "ND 667-220"
+      ],
+      "action": "Inspect sidewall batch marking and replace affected tyres.",
+      "createdAt": "2026-08-12T07:00:00Z"
+    }
+  ],
+  "tyretrack.lifecycle.orders": [
+    {
+      "id": "PO-260818-01",
+      "supplier": "Continental SA",
+      "branch": "Durban Central",
+      "status": "Submitted",
+      "createdAt": "2026-08-18T06:00:00Z",
+      "expectedDate": "2026-08-20",
+      "items": [
+        {
+          "sku": "CON-UC-2055516",
+          "description": "Continental UltraContact 205/55 R16",
+          "quantity": 12,
+          "unitCost": 1420,
+          "received": 0
+        }
+      ]
+    }
+  ],
+  "tyretrack.lifecycle.audit": [
+    {
+      "id": "AUD-1",
+      "at": "2026-08-18T07:42:00Z",
+      "actor": "N. Mthembu",
+      "action": "Quotation sent",
+      "entityType": "Job card",
+      "entityId": "JOB-4001",
+      "details": "Quote QT-260818-001 sent to customer portal."
+    }
+  ],
+  "tyretrack.lifecycle.offline": [],
+  "tyretrack.data.customers": [
+    {
+      "id": "CUS-1001",
+      "name": "Thando Mkhize",
+      "mobile": "082 451 9721",
+      "email": "thando.mkhize@example.co.za",
+      "vehicles": 2,
+      "lastVisit": "14 Aug 2026"
+    },
+    {
+      "id": "CUS-1002",
+      "name": "Lerato Molefe",
+      "mobile": "073 188 4023",
+      "email": "lerato.molefe@example.co.za",
+      "vehicles": 1,
+      "lastVisit": "12 Aug 2026"
+    },
+    {
+      "id": "CUS-1003",
+      "name": "Sibusiso Dlamini",
+      "mobile": "071 905 6632",
+      "email": "sibusiso.d@example.co.za",
+      "vehicles": 3,
+      "lastVisit": "09 Aug 2026"
+    },
+    {
+      "id": "CUS-1004",
+      "name": "Priya Naidoo",
+      "mobile": "083 672 1190",
+      "email": "priya.naidoo@example.co.za",
+      "vehicles": 1,
+      "lastVisit": "06 Aug 2026"
+    },
+    {
+      "id": "CUS-1005",
+      "name": "Ayanda Zulu",
+      "mobile": "078 331 8850",
+      "email": "ayanda.zulu@example.co.za",
+      "vehicles": 2,
+      "lastVisit": "01 Aug 2026"
+    }
+  ],
+  "tyretrack.data.vehicles": [
+    {
+      "id": "VEH-2001",
+      "registration": "ND 452-981",
+      "make": "Toyota",
+      "model": "Corolla Cross",
+      "year": 2024,
+      "customer": "Thando Mkhize",
+      "mileage": 38420,
+      "activeTyres": 4
+    },
+    {
+      "id": "VEH-2002",
+      "registration": "ND 812-774",
+      "make": "Volkswagen",
+      "model": "Polo",
+      "year": 2022,
+      "customer": "Lerato Molefe",
+      "mileage": 61580,
+      "activeTyres": 4
+    },
+    {
+      "id": "VEH-2003",
+      "registration": "NU 193-442",
+      "make": "Ford",
+      "model": "Ranger",
+      "year": 2023,
+      "customer": "Sibusiso Dlamini",
+      "mileage": 72930,
+      "activeTyres": 5
+    },
+    {
+      "id": "VEH-2004",
+      "registration": "ND 667-220",
+      "make": "Hyundai",
+      "model": "Creta",
+      "year": 2025,
+      "customer": "Priya Naidoo",
+      "mileage": 18240,
+      "activeTyres": 4
+    }
+  ],
+  "tyretrack.data.tyres": [
+    {
+      "id": "TYR-3001",
+      "reference": "TTP-8H4L92",
+      "brand": "Continental",
+      "model": "UltraContact",
+      "size": "205/55 R16",
+      "position": "Front Left",
+      "vehicle": "ND 452-981",
+      "mileage": 18420,
+      "tread": 5.2,
+      "status": "Good",
+      "fittedOn": "18 Nov 2025"
+    },
+    {
+      "id": "TYR-3002",
+      "reference": "TTP-8H4L93",
+      "brand": "Continental",
+      "model": "UltraContact",
+      "size": "205/55 R16",
+      "position": "Front Right",
+      "vehicle": "ND 452-981",
+      "mileage": 18420,
+      "tread": 4.1,
+      "status": "Attention",
+      "fittedOn": "18 Nov 2025"
+    },
+    {
+      "id": "TYR-3003",
+      "reference": "TTP-8H4L94",
+      "brand": "Continental",
+      "model": "UltraContact",
+      "size": "205/55 R16",
+      "position": "Rear Left",
+      "vehicle": "ND 452-981",
+      "mileage": 18420,
+      "tread": 5.8,
+      "status": "Good",
+      "fittedOn": "18 Nov 2025"
+    },
+    {
+      "id": "TYR-3004",
+      "reference": "TTP-8H4L95",
+      "brand": "Continental",
+      "model": "UltraContact",
+      "size": "205/55 R16",
+      "position": "Rear Right",
+      "vehicle": "ND 452-981",
+      "mileage": 18420,
+      "tread": 2.1,
+      "status": "Critical",
+      "fittedOn": "18 Nov 2025"
+    },
+    {
+      "id": "TYR-3010",
+      "reference": "TTP-KQ1192",
+      "brand": "Bridgestone",
+      "model": "Turanza",
+      "size": "195/55 R16",
+      "position": "Front Left",
+      "vehicle": "ND 812-774",
+      "mileage": 9200,
+      "tread": 6.4,
+      "status": "Good",
+      "fittedOn": "02 Apr 2026"
+    }
+  ],
+  "tyretrack.data.mileageReadings": [
+    {
+      "id": "MIL-1001",
+      "vehicleId": "VEH-2001",
+      "odometerKm": 38420,
+      "capturedAt": "16 Aug 2026, 21:18",
+      "source": "Telematics",
+      "verification": "Automated",
+      "provider": "MiX Telematics",
+      "note": "ECU/OBD odometer"
+    },
+    {
+      "id": "MIL-1002",
+      "vehicleId": "VEH-2001",
+      "odometerKm": 37140,
+      "capturedAt": "14 Aug 2026, 10:42",
+      "source": "Workshop",
+      "verification": "Verified",
+      "note": "Tyre inspection visit"
+    },
+    {
+      "id": "MIL-1003",
+      "vehicleId": "VEH-2001",
+      "odometerKm": 34210,
+      "capturedAt": "02 Jul 2026, 08:15",
+      "source": "Customer",
+      "verification": "Self-reported",
+      "note": "Customer portal update"
+    },
+    {
+      "id": "MIL-2001",
+      "vehicleId": "VEH-2002",
+      "odometerKm": 61580,
+      "capturedAt": "12 Aug 2026, 14:05",
+      "source": "Workshop",
+      "verification": "Verified",
+      "note": "Rotation visit"
+    },
+    {
+      "id": "MIL-2002",
+      "vehicleId": "VEH-2002",
+      "odometerKm": 59840,
+      "capturedAt": "30 May 2026, 18:22",
+      "source": "Customer",
+      "verification": "Self-reported",
+      "note": "Mileage reminder response"
+    },
+    {
+      "id": "MIL-3001",
+      "vehicleId": "VEH-2003",
+      "odometerKm": 72930,
+      "capturedAt": "16 Aug 2026, 21:12",
+      "source": "GPS",
+      "verification": "Automated",
+      "provider": "Fleet GPS",
+      "note": "GPS distance-derived odometer"
+    },
+    {
+      "id": "MIL-4001",
+      "vehicleId": "VEH-2004",
+      "odometerKm": 18240,
+      "capturedAt": "06 May 2026, 09:20",
+      "source": "Workshop",
+      "verification": "Verified",
+      "note": "Fitment visit"
+    }
+  ],
+  "tyretrack.data.telematicsConnections": [
+    {
+      "id": "INT-001",
+      "provider": "MiX Telematics",
+      "status": "Connected",
+      "connectedVehicles": 24,
+      "lastSync": "4 minutes ago",
+      "description": "Automated fleet odometer and vehicle telemetry."
+    },
+    {
+      "id": "INT-002",
+      "provider": "Netstar",
+      "status": "Not connected",
+      "connectedVehicles": 0,
+      "description": "Vehicle tracking and mileage integration."
+    },
+    {
+      "id": "INT-003",
+      "provider": "Samsara",
+      "status": "Not connected",
+      "connectedVehicles": 0,
+      "description": "Fleet telematics, OBD odometer and GPS distance data."
+    },
+    {
+      "id": "INT-004",
+      "provider": "Fleet GPS Gateway",
+      "status": "Attention",
+      "connectedVehicles": 7,
+      "lastSync": "2 hours ago",
+      "description": "GPS-derived distance feed for selected fleet vehicles."
+    }
+  ],
+  "tyretrack.data.recentActivity": [
+    {
+      "title": "Tyre inspection completed",
+      "meta": "ND 452-981 · Thando Mkhize",
+      "time": "18 min ago",
+      "type": "inspection"
+    },
+    {
+      "title": "Rotation reminder sent",
+      "meta": "ND 812-774 · Lerato Molefe",
+      "time": "42 min ago",
+      "type": "reminder"
+    },
+    {
+      "title": "Replacement recommended",
+      "meta": "NU 193-442 · Rear right tyre",
+      "time": "1 hr ago",
+      "type": "critical"
+    },
+    {
+      "title": "New customer registered",
+      "meta": "Ayanda Zulu · 2 vehicles",
+      "time": "2 hrs ago",
+      "type": "customer"
+    }
+  ],
+  "tyretrack.demo.notifications": [
+    {
+      "id": "NTF-1001",
+      "name": "Sibusiso Dlamini",
+      "subject": "Urgent replacement assessment",
+      "channel": "WhatsApp",
+      "reason": "TYRE_CRITICAL",
+      "vehicle": "NU 193-442",
+      "tyre": "Rear right",
+      "sendCount": 1,
+      "lastSentAt": "2026-08-17T08:15:00+02:00",
+      "message": "Your rear-right tyre has a verified critical condition. Please book an inspection before further operation."
+    },
+    {
+      "id": "NTF-1002",
+      "name": "Thando Mkhize",
+      "subject": "Tread recheck recommended",
+      "channel": "WhatsApp",
+      "reason": "TYRE_ATTENTION",
+      "vehicle": "ND 452-981",
+      "tyre": "Front right",
+      "sendCount": 1,
+      "lastSentAt": "2026-08-14T09:00:00+02:00",
+      "message": "Your latest tyre assessment recommends a tread recheck. TyreTrack will remind you again only if no action is taken after the reminder interval."
+    },
+    {
+      "id": "NTF-1003",
+      "name": "Lerato Molefe",
+      "subject": "Rotation reminder",
+      "channel": "SMS",
+      "reason": "ROTATION_DUE",
+      "vehicle": "ND 812-774",
+      "tyre": "Front axle",
+      "sendCount": 0,
+      "scheduledFor": "2026-08-17T19:30:00+02:00",
+      "message": "Your tyre rotation interval has been reached. A short rotation and balancing visit is recommended."
+    },
+    {
+      "id": "NTF-1004",
+      "name": "Priya Naidoo",
+      "subject": "Mileage update request",
+      "channel": "SMS",
+      "reason": "MILEAGE_REQUEST",
+      "vehicle": "ND 667-220",
+      "tyre": "Vehicle mileage",
+      "sendCount": 2,
+      "lastSentAt": "2026-08-10T09:00:00+02:00",
+      "message": "Please update your current odometer reading so TyreTrack can keep tyre-health estimates current."
+    },
+    {
+      "id": "NTF-1005",
+      "name": "Ayanda Zulu",
+      "subject": "Inspection booked",
+      "channel": "WhatsApp",
+      "reason": "TYRE_ATTENTION",
+      "vehicle": "ND 931-556",
+      "tyre": "Front left",
+      "sendCount": 1,
+      "customerHasActed": true,
+      "message": "Customer has already booked an inspection. Automated follow-up is paused."
+    },
+    {
+      "id": "NTF-1006",
+      "name": "Thando Mkhize",
+      "subject": "Replacement completed",
+      "channel": "WhatsApp",
+      "reason": "TYRE_CRITICAL",
+      "vehicle": "ND 452-981",
+      "tyre": "Rear right",
+      "sendCount": 1,
+      "issueResolved": true,
+      "message": "The linked tyre issue has been resolved. No more reminders will be sent."
+    }
+  ],
+  "tyretrack.demo.notificationOutbox": []
+}

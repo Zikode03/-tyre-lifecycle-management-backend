@@ -20,15 +20,15 @@ public class Customer : FullAuditedAggregateRoot<Guid>
         CustomerNumber = Check.NotNullOrWhiteSpace(customerNumber, nameof(customerNumber));
         FirstName = Check.NotNullOrWhiteSpace(firstName, nameof(firstName));
         LastName = Check.NotNullOrWhiteSpace(lastName, nameof(lastName));
-        MobileNumber = Check.NotNullOrWhiteSpace(mobileNumber, nameof(mobileNumber));
-        Email = email;
+        MobileNumber = CustomerContact.NormalizeMobile(mobileNumber);
+        Email = CustomerContact.NormalizeEmail(email);
         IsActive = true;
     }
 
     public void UpdateContact(string mobileNumber, string? email)
     {
-        MobileNumber = Check.NotNullOrWhiteSpace(mobileNumber, nameof(mobileNumber));
-        Email = email;
+        MobileNumber = CustomerContact.NormalizeMobile(mobileNumber);
+        Email = CustomerContact.NormalizeEmail(email);
     }
 
     public void SetActive(bool isActive) => IsActive = isActive;

@@ -53,6 +53,7 @@ public class InspectionAppService : ApplicationService, IInspectionAppService
     public async Task<InspectionDto> AssignTechnicianAsync(Guid id, AssignInspectionTechnicianDto input)
     {
         var inspection = await _inspectionRepository.GetAsync(id, includeDetails: true);
+        if(inspection.ExtraProperties.ContainsKey("WorkshopInspectionId"))throw new Volo.Abp.UserFriendlyException("Completed workshop inspections are immutable; record a new inspection.");
         inspection.AssignTechnician(input.TechnicianUserId);
 
         await _inspectionRepository.UpdateAsync(inspection, autoSave: true);
@@ -63,6 +64,7 @@ public class InspectionAppService : ApplicationService, IInspectionAppService
     public async Task<InspectionDto> StartAsync(Guid id)
     {
         var inspection = await _inspectionRepository.GetAsync(id, includeDetails: true);
+        if(inspection.ExtraProperties.ContainsKey("WorkshopInspectionId"))throw new Volo.Abp.UserFriendlyException("Completed workshop inspections are immutable; record a new inspection.");
         inspection.Start(Clock.Now);
 
         await _inspectionRepository.UpdateAsync(inspection, autoSave: true);
@@ -73,6 +75,7 @@ public class InspectionAppService : ApplicationService, IInspectionAppService
     public async Task<InspectionDto> AddOrUpdateReadingAsync(Guid id, AddOrUpdateInspectionReadingDto input)
     {
         var inspection = await _inspectionRepository.GetAsync(id, includeDetails: true);
+        if(inspection.ExtraProperties.ContainsKey("WorkshopInspectionId"))throw new Volo.Abp.UserFriendlyException("Completed workshop inspections are immutable; record a new inspection.");
 
         inspection.AddOrUpdateReading(
             GuidGenerator.Create(),
@@ -95,6 +98,7 @@ public class InspectionAppService : ApplicationService, IInspectionAppService
     public async Task<InspectionDto> CompleteAsync(Guid id, CompleteInspectionDto input)
     {
         var inspection = await _inspectionRepository.GetAsync(id, includeDetails: true);
+        if(inspection.ExtraProperties.ContainsKey("WorkshopInspectionId"))throw new Volo.Abp.UserFriendlyException("Completed workshop inspections are immutable; record a new inspection.");
         inspection.Complete(Clock.Now, input.Notes);
 
         await _inspectionRepository.UpdateAsync(inspection, autoSave: true);
@@ -105,6 +109,7 @@ public class InspectionAppService : ApplicationService, IInspectionAppService
     public async Task<InspectionDto> CancelAsync(Guid id, CancelInspectionDto input)
     {
         var inspection = await _inspectionRepository.GetAsync(id, includeDetails: true);
+        if(inspection.ExtraProperties.ContainsKey("WorkshopInspectionId"))throw new Volo.Abp.UserFriendlyException("Completed workshop inspections are immutable; record a new inspection.");
         inspection.Cancel(input.Notes);
 
         await _inspectionRepository.UpdateAsync(inspection, autoSave: true);

@@ -15,11 +15,14 @@ public class TyreLifecycleDbMigratorModule : AbpModule
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
+            .SetBasePath(AppContext.BaseDirectory)
             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
+            .AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: false)
             .AddEnvironmentVariables()
             .Build();
 
         context.Services.ReplaceConfiguration(configuration);
+        Configure<Volo.Abp.Data.AbpDbConnectionOptions>(options =>
+            options.ConnectionStrings.Default = configuration.GetConnectionString("Default"));
     }
 }

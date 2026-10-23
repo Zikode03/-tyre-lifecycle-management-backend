@@ -54,6 +54,7 @@ public class TyreAppService : ApplicationService, ITyreAppService
     public async Task<TyreDto> RecordTreadAsync(Guid id, RecordTreadDto input)
     {
         var tyre = await _tyreRepository.GetAsync(id);
+        if(tyre.ExtraProperties.ContainsKey("WorkshopInspectionId"))throw new Volo.Abp.UserFriendlyException("Record a new workshop inspection to update verified measurements.");
         tyre.RecordTread(input.TreadDepthMm, input.HealthStatus);
 
         await _tyreRepository.UpdateAsync(tyre, autoSave: true);
@@ -64,6 +65,7 @@ public class TyreAppService : ApplicationService, ITyreAppService
     public async Task<TyreDto> MoveAsync(Guid id, MoveTyreDto input)
     {
         var tyre = await _tyreRepository.GetAsync(id);
+        if((tyre.ExtraProperties.ContainsKey("FitmentRecordId")||tyre.ExtraProperties.ContainsKey("RemovalRecordId")||tyre.ExtraProperties.ContainsKey("RotationRecordId")||tyre.ExtraProperties.ContainsKey("JobWorkId")))throw new Volo.Abp.UserFriendlyException("Use a recorded lifecycle action to move a fitted tyre.");
         tyre.MoveTo(input.Position);
 
         await _tyreRepository.UpdateAsync(tyre, autoSave: true);
@@ -74,6 +76,7 @@ public class TyreAppService : ApplicationService, ITyreAppService
     public async Task RetireAsync(Guid id)
     {
         var tyre = await _tyreRepository.GetAsync(id);
+        if((tyre.ExtraProperties.ContainsKey("FitmentRecordId")||tyre.ExtraProperties.ContainsKey("RemovalRecordId")||tyre.ExtraProperties.ContainsKey("RotationRecordId")||tyre.ExtraProperties.ContainsKey("JobWorkId")))throw new Volo.Abp.UserFriendlyException("Use a recorded removal action to retire a fitted tyre.");
         tyre.Retire();
         await _tyreRepository.UpdateAsync(tyre, autoSave: true);
     }

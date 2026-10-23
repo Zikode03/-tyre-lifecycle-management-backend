@@ -52,6 +52,7 @@ public class CustomerAppService : ApplicationService, ICustomerAppService
     public async Task<CustomerDto> UpdateAsync(Guid id, UpdateCustomerDto input)
     {
         var customer = await _customerRepository.GetAsync(id);
+        if(customer.MobileNumber!=CustomerContact.NormalizeMobile(input.MobileNumber)) throw new Volo.Abp.UserFriendlyException("Change mobile numbers through the customer workspace verification flow.");
         customer.UpdateContact(input.MobileNumber, input.Email);
         customer.SetActive(input.IsActive);
 

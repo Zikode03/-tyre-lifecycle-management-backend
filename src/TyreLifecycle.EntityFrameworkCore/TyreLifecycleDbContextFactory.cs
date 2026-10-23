@@ -17,6 +17,7 @@ public class TyreLifecycleDbContextFactory : IDesignTimeDbContextFactory<TyreLif
         var configuration = new ConfigurationBuilder()
             .SetBasePath(basePath)
             .AddJsonFile("appsettings.json", optional: false)
+            .AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: false)
             .AddEnvironmentVariables()
             .Build();
 

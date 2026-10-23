@@ -1,0 +1,15 @@
+name: tyrelifecycle
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: tyrelifecycle-sqlserver
+    restart: unless-stopped
+    env_file:
+      - .env.tyrelifecycle-sql
+    ports:
+      - "127.0.0.1:14331:1433"
+    volumes:
+      - tyrelifecycle_sql_data:/var/opt/mssql
+volumes:
+  tyrelifecycle_sql_data:
+    name: tyrelifecycle_sql_data

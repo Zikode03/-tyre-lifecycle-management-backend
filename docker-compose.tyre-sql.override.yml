@@ -1,0 +1,5 @@
+# Use with the secure client portal SQL Server Compose file.
+services:
+  sqlserver:
+    ports: !override
+      - "14330:1433"

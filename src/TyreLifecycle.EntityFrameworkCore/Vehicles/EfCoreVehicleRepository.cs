@@ -15,6 +15,7 @@ public class EfCoreVehicleRepository : EfCoreRepository<TyreLifecycleDbContext, 
     public async Task<Vehicle?> FindByRegistrationAsync(string registrationNumber, CancellationToken cancellationToken = default)
     {
         var dbSet = await GetDbSetAsync();
-        return await dbSet.FirstOrDefaultAsync(x => x.RegistrationNumber == registrationNumber, GetCancellationToken(cancellationToken));
+        var key=VehicleRules.RegistrationKey(registrationNumber);
+        return await dbSet.FirstOrDefaultAsync(x => EF.Property<string>(x,"RegistrationKey") == key, GetCancellationToken(cancellationToken));
     }
 }

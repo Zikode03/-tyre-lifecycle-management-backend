@@ -1,0 +1,13 @@
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.log
+**/appsettings.Local.json
+
+.env.tyrelifecycle-sql
+*.bak
+
+.migration-source-counts.json
+.migration-backup-name.txt

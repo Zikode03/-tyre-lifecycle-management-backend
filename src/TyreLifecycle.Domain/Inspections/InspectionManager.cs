@@ -23,7 +23,7 @@ public class InspectionManager : DomainService
         long? odometerKm = null)
     {
         Check.NotNullOrWhiteSpace(inspectionNumber, nameof(inspectionNumber));
-        Check.NotDefaultOrNull(vehicleId, nameof(vehicleId));
+        Check.NotDefaultOrNull<Guid>(vehicleId, nameof(vehicleId));
 
         var normalizedNumber = inspectionNumber.Trim().ToUpperInvariant();
         if (await _inspectionRepository.FindByInspectionNumberAsync(normalizedNumber) is not null)
